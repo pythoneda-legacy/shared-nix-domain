@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pythoneda-nix-shared"
-version = "0.0.1a2"
+version = "0.0.1a3"
 description = "Nix domain in PythonEDA"
 authors = ["rydnr <github@acm-sl.org>"]
 readme = "README.md"

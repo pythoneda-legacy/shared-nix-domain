@@ -3,9 +3,9 @@
 
   inputs = rec {
     nixos.url = "github:NixOS/nixpkgs/nixos-22.11";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     poetry2nix = {
-      url = "github:nix-community/poetry2nix";
+      url = "github:nix-community/poetry2nix/v1.28.0";
       inputs.nixpkgs.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -30,7 +30,7 @@
         packages = {
           pythoneda-nix-shared = pythonPackages.buildPythonPackage rec {
             pname = "pythoneda-nix-shared";
-            version = "0.0.1a2";
+            version = "0.0.1a3";
             projectDir = ./.;
             src = ./.;
             format = "pyproject";
