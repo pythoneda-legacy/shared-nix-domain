@@ -1,5 +1,5 @@
-from domain.nix.python.nix_python_package import NixPythonPackage
-from domain.repo import Repo
+from PythonEDA.repo import Repo
+from PythonEDANixShared.python.nix_python_package import NixPythonPackage
 
 from typing import List
 

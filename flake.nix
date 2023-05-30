@@ -10,8 +10,8 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     pythoneda = {
-      url = "github:rydnr/pythoneda";
-      inputs.nixpkgs.follows = "nixos";
+      url = "github:rydnr/pythoneda/0.0.1a5";
+      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.poetry2nix.follows = "flake-utils";
     };
@@ -28,11 +28,14 @@
         maintainers = with pkgs.lib.maintainers; [ ];
       in rec {
         packages = {
-          pythoneda_nix_shared = pythonPackages.buildPythonPackage rec {
-            pname = "pythoneda_nix_shared";
-            version = "0.0.1a1";
+          pythoneda-nix-shared = pythonPackages.buildPythonPackage rec {
+            pname = "pythoneda-nix-shared";
+            version = "0.0.1a2";
             projectDir = ./.;
             src = ./.;
+            format = "pyproject";
+
+            nativeBuildInputs = [ pkgs.poetry ];
 
             propagatedBuildInputs = with pythonPackages;
               [ pythoneda.packages.${system}.pythoneda ];
@@ -45,7 +48,7 @@
               inherit description license homepage maintainers;
             };
           };
-          default = packages.pythoneda_nix_shared;
+          default = packages.pythoneda-nix-shared;
           meta = with lib; {
             inherit description license homepage maintainers;
           };

@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "pythoneda_nix_shared"
-version = "0.0.1a1"
+name = "pythoneda-nix-shared"
+version = "0.0.1a2"
 description = "Nix domain in PythonEDA"
 authors = ["rydnr <github@acm-sl.org>"]
 readme = "README.md"
-packages = [{include = "EDANixShared"}}]
+packages = [{include = "PythonEDANixShared"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pythoneda = "^0.0.1a4"
+pythoneda = "^0.0.1a5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0"
@@ -16,6 +16,3 @@ pytest = "^7.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-generate-grpc = "scripts.make_grpc:main"
