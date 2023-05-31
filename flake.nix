@@ -1,5 +1,5 @@
 {
-  description = "Nix domain in PythonEDA";
+  description = "Nix shared kernel in PythonEDA";
 
   inputs = rec {
     nixos.url = "github:NixOS/nixpkgs/nixos-22.11";
@@ -10,7 +10,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     pythoneda = {
-      url = "github:rydnr/pythoneda/0.0.1a5";
+      url = "github:pythoneda/base/0.0.1a7";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.poetry2nix.follows = "flake-utils";
@@ -23,14 +23,15 @@
         pkgs = import nixos { inherit system; };
         python = pkgs.python3;
         pythonPackages = python.pkgs;
-        description = "Nix domain in PythonEDA";
+        description = "Nix shared kernel in PythonEDA";
         license = pkgs.lib.licenses.gpl3;
+        homepage = "https://github.com/pythoneda-shared/nix";
         maintainers = with pkgs.lib.maintainers; [ ];
       in rec {
         packages = {
-          pythoneda-nix-shared = pythonPackages.buildPythonPackage rec {
-            pname = "pythoneda-nix-shared";
-            version = "0.0.1a3";
+          pythoneda-shared-nix = pythonPackages.buildPythonPackage rec {
+            pname = "pythoneda-shared-nix";
+            version = "0.0.1a4";
             projectDir = ./.;
             src = ./.;
             format = "pyproject";
@@ -48,7 +49,7 @@
               inherit description license homepage maintainers;
             };
           };
-          default = packages.pythoneda-nix-shared;
+          default = packages.pythoneda-shared-nix;
           meta = with lib; {
             inherit description license homepage maintainers;
           };
